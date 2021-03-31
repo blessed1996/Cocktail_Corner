@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="css/stylesBackground.css" rel="stylesheet" />
+<link href="webjars/bootstrap/4.5.3/css/bootstrap.css" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="webjars/bootstrap/4.5.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../static/js/main.js"
+	th:src="@{js/main.js}"></script>
+<meta charset="utf-8">
+
+<title>Alle Cocktails</title>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand navbar fixed-top navbar-dark bg-dark">
+		<a class="navbar-brand" href="/index"> <img
+			src="/images/logo_transparent.png" width="30" height="30"
+			class="d-inline-block align-top" alt=""> CocktailCorner
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarsList" aria-controls="navbarsList"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsList">
+			<ul class="navbar-nav mr-auto">
+
+				<li class="nav-item active"><a class="nav-link"
+					href="/showCocktails">Cocktails<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contact">Kontakt</a></li>
+			</ul>
+			<form th:action="@{/showCocktails}" class="form-inline my-2 my-md-0">
+				<input class="form-control" name="keyword" type="text"
+					placeholder="Search Cocktail" id="txtSearch">
+			</form>
+		</div>
+	</nav>
+	<br>
+	<div class="homepage-header">
+		<h1 style="color: white">
+			<em>Liste aller Cocktails:</em>
+		</h1>
+		<br>
+
+	</div>
+	<div role="main" class="container">
+		<div class="container">
+			<p style="color: white" class="lead">
+				<br> <a href="/cocktails" class="btn btn-lg btn-light">Login
+					um Rezepte zu erstellen</a>
+			</p>
+			<div class="table-wrap">
+				<div class="card">
+					<table class="table table-bordered" style="background-color: white">
+						<thead>
+							<tr>
+
+								<th width=3%>#</th>
+								<th width=22%><strong>Name</strong></th>
+								<th width=42%>Zutaten und Zubereitung</th>
+								<th width=13%>Bild</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="cocktail:${cocktails}">
+								<td th:text=${cocktail.id}>Id</td>
+								<td th:text=${cocktail.name}>Name</td>
+								<td th:text=${cocktail.message}>Zutaten</td>
+								<td><img th:src=${cocktail.picture} width=130 height=120></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<footer class=text-center>
+
+		<button onclick="upFunction()" id="scrollBtn" title="to the top">Up</button>
+		<script>
+			function upFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
+
+		<div th:insert="fragments/footer :: footer"></div>
+	</footer>
+</body>
+</html>

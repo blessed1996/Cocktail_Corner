@@ -1,0 +1,1 @@
+/* * * Diese Datei kann benutzt werden um die Datenbank mit Daten zu befuellen! * * */

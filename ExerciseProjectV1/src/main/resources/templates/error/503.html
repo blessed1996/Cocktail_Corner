@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="webjars/bootstrap/4.5.3/css/bootstrap.css" rel="stylesheet" />
+<link href="css/stylesBackground.css" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<meta charset="ISO-8859-1">
+<title>Error</title>
+</head>
+<body class=text-center>
+	<div th:insert="fragments/navbar :: header"></div>
+	<br>
+	<br>
+	<h1 style="color: white"><em>Fehler: 503</em></h1>
+	<br>
+	<h2>Ups, etwas ist schiefgelaufen :(</h2>
+	<br>
+	<h6>The service is temporarily unavailable as the site server is not available for usage, because of either a planned or an unplanned event.</h6>
+	<div th:insert="fragments/footer :: footer"></div>
+</body>
+</html>
